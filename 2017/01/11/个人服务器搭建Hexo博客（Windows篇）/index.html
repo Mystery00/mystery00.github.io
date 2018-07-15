@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.3.0',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="说在前面由于我也是第一次搭建，所有如果有什么地方说的不对，请大家提出来。很早之前就想从WordPress换到Hexo，倒不是说WordPress不好，只是不知道为什么我的后台页面是英语，一脸懵逼，也没去管，正好看到朋友自己搭建的挂载github上的博客非常好看，所以想搭一个Hexo看看。于是有了这篇教程。 Hexo原理经过这一天的折腾，大改理解了Hexo的原理。首先我们写的博客源文件是md文件，然">
+<meta name="keywords" content="Hexo,博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="个人服务器搭建Hexo博客（Windows篇）">
+<meta property="og:url" content="http://yoursite.com/2017/01/11/个人服务器搭建Hexo博客（Windows篇）/index.html">
+<meta property="og:site_name" content="Mystery0の小站">
+<meta property="og:description" content="说在前面由于我也是第一次搭建，所有如果有什么地方说的不对，请大家提出来。很早之前就想从WordPress换到Hexo，倒不是说WordPress不好，只是不知道为什么我的后台页面是英语，一脸懵逼，也没去管，正好看到朋友自己搭建的挂载github上的博客非常好看，所以想搭一个Hexo看看。于是有了这篇教程。 Hexo原理经过这一天的折腾，大改理解了Hexo的原理。首先我们写的博客源文件是md文件，然">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/hexo/2017-01-11-13-48-45.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/2017-01-11-14-29-35.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/2017-01-11-14-33-38.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/2017-01-11-15-04-36.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/2017-01-11-15-09-33.png">
+<meta property="og:updated_time" content="2018-07-15T12:35:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="个人服务器搭建Hexo博客（Windows篇）">
+<meta name="twitter:description" content="说在前面由于我也是第一次搭建，所有如果有什么地方说的不对，请大家提出来。很早之前就想从WordPress换到Hexo，倒不是说WordPress不好，只是不知道为什么我的后台页面是英语，一脸懵逼，也没去管，正好看到朋友自己搭建的挂载github上的博客非常好看，所以想搭一个Hexo看看。于是有了这篇教程。 Hexo原理经过这一天的折腾，大改理解了Hexo的原理。首先我们写的博客源文件是md文件，然">
+<meta name="twitter:image" content="http://yoursite.com/images/hexo/2017-01-11-13-48-45.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/01/11/个人服务器搭建Hexo博客（Windows篇）/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>个人服务器搭建Hexo博客（Windows篇） | Mystery0の小站</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mystery0の小站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">要么做第一个，要么做最好的一个！</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/11/个人服务器搭建Hexo博客（Windows篇）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mystery0">
+      <meta itemprop="description" content="要么做第一个，要么做最好的一个！">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mystery0の小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">个人服务器搭建Hexo博客（Windows篇）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-01-11 18:54:01" itemprop="dateCreated datePublished" datetime="2017-01-11T18:54:01+08:00">2017-01-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-07-15 20:35:36" itemprop="dateModified" datetime="2018-07-15T20:35:36+08:00">2018-07-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/博客/" itemprop="url" rel="index"><span itemprop="name">博客</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/01/11/个人服务器搭建Hexo博客（Windows篇）/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/01/11/个人服务器搭建Hexo博客（Windows篇）/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/01/11/个人服务器搭建Hexo博客（Windows篇）/" class="leancloud_visitors" data-flag-title="个人服务器搭建Hexo博客（Windows篇）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="说在前面"><a href="#说在前面" class="headerlink" title="说在前面"></a><strong>说在前面</strong></h2><p>由于我也是第一次搭建，所有如果有什么地方说的不对，请大家提出来。很早之前就想从WordPress换到Hexo，倒不是说WordPress不好，只是不知道为什么我的后台页面是英语，一脸懵逼，也没去管，正好看到朋友自己搭建的挂载github上的博客非常好看，所以想搭一个Hexo看看。于是有了这篇教程。</p>
+<h2 id="Hexo原理"><a href="#Hexo原理" class="headerlink" title="Hexo原理"></a><strong>Hexo原理</strong></h2><p>经过这一天的折腾，大改理解了Hexo的原理。首先我们写的博客源文件是md文件，然后经过Hexo的解析，生成html文件和文件目录，然后直接访问这些html文件就能浏览到对应的文章。至于将html文件推到github或者个人服务器上，就是作者自己的事情了。</p>
+<h2 id="此文使用配置"><a href="#此文使用配置" class="headerlink" title="此文使用配置"></a><strong>此文使用配置</strong></h2><p>Windows10 PC ×1<br>Ubuntu16.04 主机 ×1</p>
+<h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a><strong>流程</strong></h2><h3 id="1-windows安装git"><a href="#1-windows安装git" class="headerlink" title="1.windows安装git"></a><strong>1.windows安装git</strong></h3><p>去<a href="https://git-scm.com/download/win" title="git官网" target="_blank" rel="noopener">git官网</a>下载git安装包，然后安装。</p>
+<h4 id="git环境配置："><a href="#git环境配置：" class="headerlink" title="git环境配置："></a><strong>git环境配置：</strong></h4><p>按照大多数教程的方法，说的是系统变量Path新增值为git安装目录下的bin文件，我是很早之前用github的时候就安装并配置了git，去找了一下我的path，只找到值为git安装目录下的cmd文件，但是在cmd中空打git有命令，说明能使用，所以各位还是先试试bin文件夹吧，若不行请试一下cmd文件夹。<br>配置成功后在cmd窗口中直接输入git应该会出现帮助菜单，如下图所示：<br><img src="/images/hexo/2017-01-11-13-48-45.png" alt=""></p>
+<h4 id="生成ssh密钥"><a href="#生成ssh密钥" class="headerlink" title="生成ssh密钥"></a><strong>生成ssh密钥</strong></h4><p>1.打开<code>C:\Users\&lt;用户名&gt;\.ssh</code>文件夹，如果没有就新建<br>2.在空白处单击右键，选择Git Bash Here打开终端<br>3.设置git用户名</p>
+<pre><code>git config --global user.email &quot;email@example.com&quot;
+git config --global user.name &quot;username&quot;
+</code></pre><p>4.生成ssh密钥</p>
+<pre><code>ssh-keygen -t rsa -C &quot;email@example.com&quot;
+</code></pre><p>一路回车生成公钥和密钥，一会要用到公钥id_rsa.pub</p>
+<h3 id="2-安装Node-js"><a href="#2-安装Node-js" class="headerlink" title="2.安装Node.js"></a><strong>2.安装Node.js</strong></h3><p>在<a href="https://nodejs.org/en/download/" title="Node.js官网" target="_blank" rel="noopener">Node.js官网</a>下载最新版，一路默认安装。</p>
+<h3 id="3-安装Hexo到本地"><a href="#3-安装Hexo到本地" class="headerlink" title="3.安装Hexo到本地"></a><strong>3.安装Hexo到本地</strong></h3><p>在任意位置创建一个文件夹，用于存放Hexo，在这里我是放在<code>E:\Hexo</code>文件夹，下文以此代替。</p>
+<h4 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a><strong>安装Hexo</strong></h4><p><code>win+r</code>打开<code>cmd</code>，<code>cd</code>到创建的<code>Hexo</code>文件夹，输入<code>node</code>后执行如下命令：</p>
+<pre><code>npm install -g hexo-cli
+hexo init
+npm install
+hexo d -fg
+hexo serve
+</code></pre><p>第一句是通过npm安装hexo，第二句是初始化hexo到当前目录（即<code>E:\Hexo</code>文件夹）。执行完最后一句之后，静态网页已经能够在<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a>中访问了，当然，只是本地。<br><img src="/images/hexo/2017-01-11-14-29-35.png" alt=""><br>这个时候查看hexo的目录可以看到下图的结构：<br><img src="/images/hexo/2017-01-11-14-33-38.png" alt=""><br>其中themes便是主题文件夹，里面存放的是主题，通过<code>_config.yml</code>文件设置主题以及网站的信息。</p>
+<h3 id="4-vps的配置"><a href="#4-vps的配置" class="headerlink" title="4.vps的配置"></a><strong>4.vps的配置</strong></h3><p>我在这里使用的ubuntu的主机，通过<a href="http://www.putty.org/" title="Putty" target="_blank" rel="noopener">Putty</a>连接远程主机，进入命令行界面。</p>
+<h4 id="1-安装git"><a href="#1-安装git" class="headerlink" title="1.安装git"></a><strong>1.安装git</strong></h4><pre><code>$ sudo apt-get install git-core
+</code></pre><h4 id="2-安装nginx："><a href="#2-安装nginx：" class="headerlink" title="2.安装nginx："></a><strong>2.安装nginx：</strong></h4><pre><code>$ sudo apt-get install nginx
+</code></pre><h4 id="3-新建git用户"><a href="#3-新建git用户" class="headerlink" title="3.新建git用户"></a><strong>3.新建git用户</strong></h4><p>切换到root用户，然后执行以下语句：</p>
+<pre><code>adduser git
+chmod 740 /etc/sudoers
+vim /etc/sudoers
+</code></pre><p>在编辑器中找到如下内容：</p>
+<pre><code># User privilege specification
+root    ALL=(ALL:ALL) ALL
+</code></pre><p>在后面添加一行：</p>
+<pre><code>git   ALL=(ALL)     ALL
+</code></pre><p>保存并退出后执行：</p>
+<pre><code>chmod 440 /etc/sudoers
+</code></pre><h4 id="4-创建git仓库，配置ssh登陆"><a href="#4-创建git仓库，配置ssh登陆" class="headerlink" title="4.创建git仓库，配置ssh登陆"></a><strong>4.创建git仓库，配置ssh登陆</strong></h4><pre><code>su git
+cd ~
+mkdir .ssh &amp;&amp; cd .ssh
+touch authorized_keys
+vi authorized_keys
+cd ~ 
+mkdir hexo.git &amp;&amp; cd hexo.git
+git init --bare
+</code></pre><p>在<code>vi authorized_keys</code>时，将之前在windows上用git生成的key粘贴进去，<strong>注意是全文粘贴！</strong><br>测试一下，返回到windows，在任意目录右键<code>git bash here</code>，输入<code>ssh git@vps的ip地址</code>，如果能够远程登录的话，则表示设置成功。</p>
+<h4 id="5-设置网站目录并赋予git用户访问权限"><a href="#5-设置网站目录并赋予git用户访问权限" class="headerlink" title="5.设置网站目录并赋予git用户访问权限"></a><strong>5.设置网站目录并赋予git用户访问权限</strong></h4><p>nginx默认打开的目录是<code>/var/www/html</code>，所以我们要让git用户能够访问到这个目录并进行修改。当然也可以新建一个目录用于存储hexo的文件，之后只要在nginx的配置文件中修改服务器入口即可。我在这里是新建了一个目录存放hexo文件，所以执行如下命令：</p>
+<pre><code>cd /var/www
+mkdir hexo
+chown git:git -R /var/www/hexo
+</code></pre><h4 id="6-配置git-hooks"><a href="#6-配置git-hooks" class="headerlink" title="6.配置git hooks"></a><strong>6.配置git hooks</strong></h4><pre><code>su git
+cd /home/git/hexo.git/hooks
+vim post-receive
+</code></pre><p>输入如下内容后保存并退出：</p>
+<pre><code>#!/bin/bash
+rm -rf /tmp/hexo
+git clone /home/git/hexo.git /tmp/hexo
+rm -rf /var/www/hexo/*
+cp -rf /tmp/hexo/* /var/www/hexo
+</code></pre><p>这一段脚本学过shell的人应该都能看懂。<br>然后赋予脚本权限（切换到root用户）</p>
+<pre><code>chmod +x post-receive
+</code></pre><p>接下来赋予git用户访问这三个目录的权限，<code>/var/www/hexo</code>已经赋予了，还有其他的两个目录：</p>
+<pre><code>chown git:git -R /home/git/hexo.git
+chown git:git -R /tmp/hexo
+</code></pre><h4 id="7-配置nginx"><a href="#7-配置nginx" class="headerlink" title="7.配置nginx"></a><strong>7.配置nginx</strong></h4><p>root用户下执行：</p>
+<pre><code>vim /etc/nginx/sites-available/default
+</code></pre><p>找到<code>root /var/www/html;</code><br>将其修改为：</p>
+<pre><code>root /var/www/hexo;
+</code></pre><p>保存并退出。<br><img src="/images/hexo/2017-01-11-15-04-36.png" alt=""><br>重启nginx</p>
+<pre><code>service nginx restart
+</code></pre><h4 id="8-配置Hexo"><a href="#8-配置Hexo" class="headerlink" title="8.配置Hexo"></a><strong>8.配置Hexo</strong></h4><p>使用文本编辑器打开<code>hexo</code>文件夹下的<code>_config.yml</code>，修改<code>deploy</code>选项</p>
+<pre><code># Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+      type: git
+      message: update
+      repo: git@vps的ip地址:hexo.git,master
+</code></pre><p>然后在<code>hexo</code>文件夹新建一个bat脚本文件，命令是</p>
+<pre><code>hexo g &amp;&amp; hexo d
+</code></pre><p>当然也可以不建立，各人所好吧。<br><img src="/images/hexo/2017-01-11-15-09-33.png" alt=""><br>双击运行，推送成功之后，直接打开vps的ip地址应该就能直接访问<code>hello world</code>了，至此，教程结束。</p>
+<h2 id="更新博客的方法"><a href="#更新博客的方法" class="headerlink" title="更新博客的方法"></a><strong>更新博客的方法</strong></h2><p>新建md文件（后缀名是.md），拷贝到<code>hexo</code>文件夹的<code>source\_posts</code>中，双击运行脚本（或者打开cmd <code>cd</code>到hexo文件夹，执行命令<code>hexo g &amp;&amp; hexo d</code>）。<br>文件编码必须为 UTF-8，这一点请用户注意。<br>每篇 Blog 都有固定的参数必须填写，参数如下，注意每个参数的 : 后都有一个空格：</p>
+<pre><code>title: title
+date: yyyy-mm-dd
+categories: category  
+tags: tag
+#多标签请这样写：  
+#tags: [tag1,tag2,tag3]
+#或者这样写： 
+#tags:
+#- tag1 
+#- tag2  
+#- tag3  
+---  
+正文  
+</code></pre>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Mystery0 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Mystery0 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+          
+            <a href="/tags/博客/" rel="tag"># 博客</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/11/小谈Android系统文件目录/" rel="next" title="小谈Android系统文件目录">
+                <i class="fa fa-chevron-left"></i> 小谈Android系统文件目录
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/12/Ubuntu使用Shadowsocks-qt5科学上网/" rel="prev" title="Ubuntu使用Shadowsocks-qt5科学上网">
+                Ubuntu使用Shadowsocks-qt5科学上网 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Mystery0" />
+            
+              <p class="site-author-name" itemprop="name">Mystery0</p>
+              <p class="site-description motion-element" itemprop="description">要么做第一个，要么做最好的一个！</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/yourname" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:mystery0dyl520@gmail.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/109157499544556604338" target="_blank" title="Google+">Google+</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://t.me/Mystery0" target="_blank" title="Telegram">Telegram</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://weilylab.com" title="微力实验室" target="_blank">微力实验室</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/qq_40891541" title="纸镜之境" target="_blank">纸镜之境</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#说在前面"><span class="nav-number">1.</span> <span class="nav-text">说在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo原理"><span class="nav-number">2.</span> <span class="nav-text">Hexo原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#此文使用配置"><span class="nav-number">3.</span> <span class="nav-text">此文使用配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流程"><span class="nav-number">4.</span> <span class="nav-text">流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-windows安装git"><span class="nav-number">4.1.</span> <span class="nav-text">1.windows安装git</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#git环境配置："><span class="nav-number">4.1.1.</span> <span class="nav-text">git环境配置：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成ssh密钥"><span class="nav-number">4.1.2.</span> <span class="nav-text">生成ssh密钥</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-安装Node-js"><span class="nav-number">4.2.</span> <span class="nav-text">2.安装Node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-安装Hexo到本地"><span class="nav-number">4.3.</span> <span class="nav-text">3.安装Hexo到本地</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Hexo"><span class="nav-number">4.3.1.</span> <span class="nav-text">安装Hexo</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-vps的配置"><span class="nav-number">4.4.</span> <span class="nav-text">4.vps的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-安装git"><span class="nav-number">4.4.1.</span> <span class="nav-text">1.安装git</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-安装nginx："><span class="nav-number">4.4.2.</span> <span class="nav-text">2.安装nginx：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-新建git用户"><span class="nav-number">4.4.3.</span> <span class="nav-text">3.新建git用户</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-创建git仓库，配置ssh登陆"><span class="nav-number">4.4.4.</span> <span class="nav-text">4.创建git仓库，配置ssh登陆</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-设置网站目录并赋予git用户访问权限"><span class="nav-number">4.4.5.</span> <span class="nav-text">5.设置网站目录并赋予git用户访问权限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-配置git-hooks"><span class="nav-number">4.4.6.</span> <span class="nav-text">6.配置git hooks</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-配置nginx"><span class="nav-number">4.4.7.</span> <span class="nav-text">7.配置nginx</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-配置Hexo"><span class="nav-number">4.4.8.</span> <span class="nav-text">8.配置Hexo</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更新博客的方法"><span class="nav-number">5.</span> <span class="nav-text">更新博客的方法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mystery0</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Mist</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://mystery0.disqus.com/count.js" async></script>
+  
+
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2017/01/11/个人服务器搭建Hexo博客（Windows篇）/';
+        this.page.identifier = '2017/01/11/个人服务器搭建Hexo博客（Windows篇）/';
+        this.page.title = '个人服务器搭建Hexo博客（Windows篇）';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://mystery0.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("ICzYQuseO4e91t0Hm2wKJuXW-gzGzoHsz", "yzENh050qHUKUD3udnhjjoip");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            
+            counter.save(null, {
+              success: function(counter) {
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

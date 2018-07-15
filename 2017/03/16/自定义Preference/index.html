@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.3.0',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="说在前面前面的一篇博文中，我们讲到了Preference的一些坑，虽然不多，但是我会保持更新的。 这几天写Hitokoto的过程中也熟悉了甚至可以说基本掌握了Preference的基本使用，数据的存储以及默认值的设置，都已经没有问题了，但是再写“显示当前”的时候，需要弹出一个Dialog，有了之前EditTextPreference的坑之后，我没有尝试，我想应该也会报一个主题的问题，毕竟当时的错误">
+<meta name="keywords" content="Android,Preference">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自定义Preference">
+<meta property="og:url" content="http://yoursite.com/2017/03/16/自定义Preference/index.html">
+<meta property="og:site_name" content="Mystery0の小站">
+<meta property="og:description" content="说在前面前面的一篇博文中，我们讲到了Preference的一些坑，虽然不多，但是我会保持更新的。 这几天写Hitokoto的过程中也熟悉了甚至可以说基本掌握了Preference的基本使用，数据的存储以及默认值的设置，都已经没有问题了，但是再写“显示当前”的时候，需要弹出一个Dialog，有了之前EditTextPreference的坑之后，我没有尝试，我想应该也会报一个主题的问题，毕竟当时的错误">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/img/pictures/2017_03_16_002.png">
+<meta property="og:image" content="http://yoursite.com/img/pictures/photo_2017-03-16_22-24-41.jpg">
+<meta property="og:image" content="http://yoursite.com/img/pictures/photo_2017-03-16_22-24-01.jpg">
+<meta property="og:updated_time" content="2018-07-15T12:35:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="自定义Preference">
+<meta name="twitter:description" content="说在前面前面的一篇博文中，我们讲到了Preference的一些坑，虽然不多，但是我会保持更新的。 这几天写Hitokoto的过程中也熟悉了甚至可以说基本掌握了Preference的基本使用，数据的存储以及默认值的设置，都已经没有问题了，但是再写“显示当前”的时候，需要弹出一个Dialog，有了之前EditTextPreference的坑之后，我没有尝试，我想应该也会报一个主题的问题，毕竟当时的错误">
+<meta name="twitter:image" content="http://yoursite.com/img/pictures/2017_03_16_002.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/16/自定义Preference/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>自定义Preference | Mystery0の小站</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mystery0の小站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">要么做第一个，要么做最好的一个！</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/16/自定义Preference/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mystery0">
+      <meta itemprop="description" content="要么做第一个，要么做最好的一个！">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mystery0の小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">自定义Preference
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-03-16 21:27:31" itemprop="dateCreated datePublished" datetime="2017-03-16T21:27:31+08:00">2017-03-16</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-07-15 20:35:36" itemprop="dateModified" datetime="2018-07-15T20:35:36+08:00">2018-07-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/16/自定义Preference/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/03/16/自定义Preference/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/03/16/自定义Preference/" class="leancloud_visitors" data-flag-title="自定义Preference">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="说在前面"><a href="#说在前面" class="headerlink" title="说在前面"></a>说在前面</h2><p>前面的一篇博文中，我们讲到了<code>Preference</code>的一些坑，虽然不多，但是我会保持更新的。</p>
+<p>这几天写<code>Hitokoto</code>的过程中也熟悉了甚至可以说基本掌握了<code>Preference</code>的基本使用，数据的存储以及默认值的设置，都已经没有问题了，但是再写“显示当前”的时候，需要弹出一个<code>Dialog</code>，有了之前<code>EditTextPreference</code>的坑之后，我没有尝试，我想应该也会报一个主题的问题，毕竟当时的错误是报在<code>AlertDialog</code>上的，所以我有直接写。</p>
+<p>我查了一下Android的文档，发现官方中似乎有一个叫做<code>DialogPreference</code>的控件，但是这个类是一个抽象类，不能实例化，而之前提到的常用的<code>Preference</code>中，<code>EditTextPreference</code>就是一个继承了<code>DialogPreference</code>重写的<code>Preference</code>，所以说，如果我们需要一个单纯的<code>Dialog</code>的话，我们需要自定义并且继承<code>DialogPreference</code>。</p>
+<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>对于自定义控件，我想我一直都写的不怎么好，虽然说在我自己的工具箱中写了三个自定义控件，但是功能都比较单一。所以这次自定义<code>Preference</code>也遇到了不少问题，当然，截至现在（2017年3月16日21:35:59），我依旧没有解决，虽然这个控件大部分完成了。</p>
+<h2 id="自定义Preference"><a href="#自定义Preference" class="headerlink" title="自定义Preference"></a>自定义Preference</h2><p>由于之前路由器的坑的原因，所以这次我直接选择官方的文档。<br>    Android 框架包括各种 Preference 子类，您可以使用它们为各种不同类型的设置构建 UI。不过，您可能会发现自己需要的设置没有内置解决方案，例如，数字选取器或日期选取器。 在这种情况下，您将需要通过扩展 Preference 类或其他子类之一来创建自定义首选项。</p>
+<pre><code>扩展 Preference 类时，您需要执行以下几项重要操作：
+指定在用户选择设置时显示的用户界面。
+适时保存设置的值。
+使用显示的当前（默认）值初始化 Preference。
+在系统请求时提供默认值。
+如果 Preference 提供自己的 UI（例如对话框），请保存并恢复状态以处理生命周期变更（例如，用户旋转屏幕）。
+</code></pre><p>上面的是官方的说明，也正好给我们一个提示。</p>
+<h3 id="指定用户界面"><a href="#指定用户界面" class="headerlink" title="指定用户界面"></a>指定用户界面</h3><p><img src="/img/pictures/2017_03_16_002.png" alt=""><br>自定义控件的第一步都是指定布局文件，当然，如果是基于原有控件进行修改的不需要，我也没写过不指定布局的，对于绘图那一块我一直没有去详细的研究……<br>在这里有四个默认构造函数，其中调用第一个和第四个的<code>super</code>方法需要sdk&gt;=21，我也不知道为什么，但是为了低版本能用，所以我调用的是第三个。<br>在构造函数中我们需要指定我们的布局文件。<br>通过以下代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">TextDialogPreference</span><span class="params">(Context context, AttributeSet attrs)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(context, attrs);</span><br><span class="line">        setDialogLayoutResource(R.layout.mystery0_text_preference);<span class="comment">//指定布局</span></span><br><span class="line">        setPositiveButtonText(R.string.mystery0_preference_content);<span class="comment">//指定确认键文本</span></span><br><span class="line">        setNegativeButtonText(R.string.mystery0_preference_source);<span class="comment">//指定取消键文本</span></span><br><span class="line">        setDialogIcon(<span class="keyword">null</span>);<span class="comment">//设置dialog图标</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>对于布局中控件的绑定，我们需要重写<code>View onCreateDialogView()</code>以及<code>void onBindDialogView(View view)</code>方法。<br>如下所示：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> View <span class="title">onCreateDialogView</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreateDialogView();</span><br><span class="line">        <span class="keyword">if</span> (view != <span class="keyword">null</span>) <span class="keyword">return</span> view;</span><br><span class="line">        view = LayoutInflater.from(getContext()).inflate(</span><br><span class="line">                R.layout.mystery0_text_preference, <span class="keyword">null</span>);</span><br><span class="line">        <span class="keyword">return</span> view;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onBindDialogView</span><span class="params">(View view)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onBindDialogView(view);</span><br><span class="line"></span><br><span class="line">        textView = (TextView) view.findViewById(R.id.mystery0_text_preference_view_content);</span><br><span class="line">        sourceView = (TextView) view.findViewById(R.id.mystery0_text_preference_view_source);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="保存设置的值"><a href="#保存设置的值" class="headerlink" title="保存设置的值"></a>保存设置的值</h3><p>在这里有几个方法，分别用于保存对应类型的值：</p>
+<pre><code>persist*()
+</code></pre><p>其中的*对应类型，如<code>persistInt()</code><br>对于这个方法的调用，一般是在<code>Dialog</code>关闭的时候保存数据。<br>对于我们的这个例子，我想写的只是将数据在<code>Dialog</code>中显示，所以并不需要存储数据，所以在这里我没写。<br>以下是Android的原文：</p>
+<pre><code>当 DialogPreference 关闭时，系统会调用 onDialogClosed() 方法。该方法包括一个布尔参数，用于指定用户结果是否为“肯定”；如果值为 true，则表示用户选择的是肯定按钮且您应该保存新值。 例如：
+@Override
+protected void onDialogClosed(boolean positiveResult) {
+    // When the user selects &quot;OK&quot;, persist the new value
+    if (positiveResult) {
+        persistInt(mNewValue);
+    }
+}
+在此示例中，mNewValue 是一个类成员，可存放设置的当前值。调用 persistInt() 会将该值保存到 SharedPreferences 文件（自动使用在此 Preference 的 XML 文件中指定的键）。
+</code></pre><h3 id="初始化当前值"><a href="#初始化当前值" class="headerlink" title="初始化当前值"></a>初始化当前值</h3><p>系统将 <code>Preference</code> 添加到屏幕时，会调用 <code>onSetInitialValue()</code> 来通知您设置是否具有保留值。如果没有保留值，则此调用将为您提供默认值。<br><code>onSetInitialValue()</code>方法传递一个布尔值 (<code>restorePersistedValue</code>)，以指示是否已为该设置保留值。 如果值为 <code>true</code>，则应通过调用 <code>Preference</code> 类的一个 <code>getPersisted\*()</code> 方法（如整型值对应的 <code>getPersistedInt()</code>）来检索保留值。 通常，您会需要检索保留值，以便能够正确更新 UI 来反映之前保存的值。<br>如果 <code>restorePersistedValue</code> 为 <code>false</code>，则应使用在第二个参数中传递的默认值。</p>
+<p>代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onSetInitialValue</span><span class="params">(<span class="keyword">boolean</span> restorePersistedValue, Object defaultValue)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (restorePersistedValue)</span><br><span class="line">        &#123;</span><br><span class="line">            text = getPersistedString(<span class="string">"test"</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            text = (String) defaultValue;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="注意：您不能使用-defaultValue-作为-getPersisted-方法中的默认值，因为当-restorePersistedValue-为-true-时，其值始终为-null。"><a href="#注意：您不能使用-defaultValue-作为-getPersisted-方法中的默认值，因为当-restorePersistedValue-为-true-时，其值始终为-null。" class="headerlink" title="注意：您不能使用 defaultValue 作为 getPersisted*()方法中的默认值，因为当 restorePersistedValue 为 true 时，其值始终为 null。"></a><strong>注意：您不能使用 <code>defaultValue</code> 作为 <code>getPersisted*()</code>方法中的默认值，因为当 <code>restorePersistedValue</code> 为 <code>true</code> 时，其值始终为 <code>null</code>。</strong></h4><h3 id="提供默认值"><a href="#提供默认值" class="headerlink" title="提供默认值"></a>提供默认值</h3><p>如果 Preference 类的实例指定一个默认值（使用 android:defaultValue 属性），则在实例化对象以检索该值时，系统会调用 <code>onGetDefaultValue()</code>。您必须实现此方法，系统才能将默认值保存在 <code>SharedPreferences</code> 中。 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> Object <span class="title">onGetDefaultValue</span><span class="params">(TypedArray a, <span class="keyword">int</span> index)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a.getString(index);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>方法参数可提供您所需的一切：属性的数组和 <code>android:defaultValue</code>（必须检索的值）的索引位置。 之所以必须实现此方法以从该属性中提取默认值，是因为您必须为此属性指定在未定义属性值时所要使用的局部默认值。</p>
+<h3 id="显示"><a href="#显示" class="headerlink" title="显示"></a>显示</h3><p>官方文档中还有保存首选项设置的代码重写，但是由于我这里用不到，所以没有去研究。<br>所以我直接重写了显示方法，也就是<code>void showDialog(Bundle state)</code>，在之前，无论我实在那个函数中调用<code>settext</code>方法都会得到一个空指针的<code>Exception</code>，不得已，我只能将<code>settext</code>方法写在显示的方法中。如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">showDialog</span><span class="params">(Bundle state)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.showDialog(state);</span><br><span class="line">        textView.setText(text);</span><br><span class="line">        sourceView.setText(source);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>保存，调试，成功。<br>效果图：</p>
+<p><img src="/img/pictures/photo_2017-03-16_22-24-41.jpg" alt=""></p>
+<p><img src="/img/pictures/photo_2017-03-16_22-24-01.jpg" alt=""></p>
+<h2 id="后话"><a href="#后话" class="headerlink" title="后话"></a>后话</h2><p>但是很快我便发现了一个异常，虽然显示的结果完全正常，但是在第二次点击的时候就报错。<br>以下是错误原文：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">java.lang.IllegalStateException: The specified child already has a parent. <span class="function">You must call <span class="title">removeView</span><span class="params">()</span> on the child's parent first.</span></span><br><span class="line"><span class="function">                        at android.view.ViewGroup.<span class="title">addViewInner</span><span class="params">(ViewGroup.java:<span class="number">4417</span>)</span></span></span><br><span class="line"><span class="function">                        at android.view.ViewGroup.<span class="title">addView</span><span class="params">(ViewGroup.java:<span class="number">4258</span>)</span></span></span><br><span class="line"><span class="function">                        at android.view.ViewGroup.<span class="title">addView</span><span class="params">(ViewGroup.java:<span class="number">4230</span>)</span></span></span><br><span class="line"><span class="function">                        at com.android.internal.app.AlertController.<span class="title">setupCustomContent</span><span class="params">(AlertController.java:<span class="number">601</span>)</span></span></span><br><span class="line"><span class="function">                        at com.android.internal.app.AlertController.<span class="title">setupView</span><span class="params">(AlertController.java:<span class="number">495</span>)</span></span></span><br><span class="line"><span class="function">                        at com.android.internal.app.AlertController.<span class="title">installContent</span><span class="params">(AlertController.java:<span class="number">253</span>)</span></span></span><br><span class="line"><span class="function">                        at android.app.AlertDialog.<span class="title">onCreate</span><span class="params">(AlertDialog.java:<span class="number">423</span>)</span></span></span><br><span class="line"><span class="function">                        at android.app.Dialog.<span class="title">dispatchOnCreate</span><span class="params">(Dialog.java:<span class="number">395</span>)</span></span></span><br><span class="line"><span class="function">                        at android.app.Dialog.<span class="title">show</span><span class="params">(Dialog.java:<span class="number">294</span>)</span></span></span><br><span class="line"><span class="function">                        at android.preference.DialogPreference.<span class="title">showDialog</span><span class="params">(DialogPreference.java:<span class="number">297</span>)</span></span></span><br><span class="line"><span class="function">                        at com.mystery0.tools.TextDialogPreference.TextDialogPreference.<span class="title">showDialog</span><span class="params">(TextDialogPreference.java:<span class="number">93</span>)</span></span></span><br><span class="line"><span class="function">                        at android.preference.DialogPreference.<span class="title">onClick</span><span class="params">(DialogPreference.java:<span class="number">277</span>)</span></span></span><br><span class="line"><span class="function">                        at android.preference.Preference.<span class="title">performClick</span><span class="params">(Preference.java:<span class="number">994</span>)</span></span></span><br><span class="line"><span class="function">                        at android.preference.PreferenceScreen.<span class="title">onItemClick</span><span class="params">(PreferenceScreen.java:<span class="number">249</span>)</span></span></span><br><span class="line"><span class="function">                        at android.widget.AdapterView.<span class="title">performItemClick</span><span class="params">(AdapterView.java:<span class="number">310</span>)</span></span></span><br><span class="line"><span class="function">                        at android.widget.AbsListView.<span class="title">performItemClick</span><span class="params">(AbsListView.java:<span class="number">1156</span>)</span></span></span><br><span class="line"><span class="function">                        at android.widget.AbsListView$PerformClick.<span class="title">run</span><span class="params">(AbsListView.java:<span class="number">3128</span>)</span></span></span><br><span class="line"><span class="function">                        at android.widget.AbsListView$3.<span class="title">run</span><span class="params">(AbsListView.java:<span class="number">4043</span>)</span></span></span><br><span class="line"><span class="function">                        at android.os.Handler.<span class="title">handleCallback</span><span class="params">(Handler.java:<span class="number">751</span>)</span></span></span><br><span class="line"><span class="function">                        at android.os.Handler.<span class="title">dispatchMessage</span><span class="params">(Handler.java:<span class="number">95</span>)</span></span></span><br><span class="line"><span class="function">                        at android.os.Looper.<span class="title">loop</span><span class="params">(Looper.java:<span class="number">154</span>)</span></span></span><br><span class="line"><span class="function">                        at android.app.ActivityThread.<span class="title">main</span><span class="params">(ActivityThread.java:<span class="number">6126</span>)</span></span></span><br><span class="line"><span class="function">                        at java.lang.reflect.Method.<span class="title">invoke</span><span class="params">(Native Method)</span></span></span><br><span class="line"><span class="function">                        at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.<span class="title">run</span><span class="params">(ZygoteInit.java:<span class="number">886</span>)</span></span></span><br><span class="line"><span class="function">                        at com.android.internal.os.ZygoteInit.<span class="title">main</span><span class="params">(ZygoteInit.java:<span class="number">776</span>)</span></span></span><br></pre></td></tr></table></figure></p>
+<p>我想我应该遇到这个错误很多次了，当时在学习Fragment的时候并没有认真去学，导致后来写fragment的时候非常依赖ide，同时fragment的相关错误我都不知道如何解决，而这个就是错误中的一种。<br>我想我会解决这个问题的。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Mystery0 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Mystery0 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/Preference/" rel="tag"># Preference</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/12/Preference简单使用/" rel="next" title="Preference简单使用">
+                <i class="fa fa-chevron-left"></i> Preference简单使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/23/编译LineageOS/" rel="prev" title="编译LineageOS">
+                编译LineageOS <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Mystery0" />
+            
+              <p class="site-author-name" itemprop="name">Mystery0</p>
+              <p class="site-description motion-element" itemprop="description">要么做第一个，要么做最好的一个！</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/yourname" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:mystery0dyl520@gmail.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/109157499544556604338" target="_blank" title="Google+">Google+</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://t.me/Mystery0" target="_blank" title="Telegram">Telegram</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://weilylab.com" title="微力实验室" target="_blank">微力实验室</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/qq_40891541" title="纸镜之境" target="_blank">纸镜之境</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#说在前面"><span class="nav-number">1.</span> <span class="nav-text">说在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提示"><span class="nav-number">2.</span> <span class="nav-text">提示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义Preference"><span class="nav-number">3.</span> <span class="nav-text">自定义Preference</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#指定用户界面"><span class="nav-number">3.1.</span> <span class="nav-text">指定用户界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#保存设置的值"><span class="nav-number">3.2.</span> <span class="nav-text">保存设置的值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化当前值"><span class="nav-number">3.3.</span> <span class="nav-text">初始化当前值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注意：您不能使用-defaultValue-作为-getPersisted-方法中的默认值，因为当-restorePersistedValue-为-true-时，其值始终为-null。"><span class="nav-number">3.3.1.</span> <span class="nav-text">注意：您不能使用 defaultValue 作为 getPersisted*()方法中的默认值，因为当 restorePersistedValue 为 true 时，其值始终为 null。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提供默认值"><span class="nav-number">3.4.</span> <span class="nav-text">提供默认值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示"><span class="nav-number">3.5.</span> <span class="nav-text">显示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后话"><span class="nav-number">4.</span> <span class="nav-text">后话</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mystery0</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Mist</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://mystery0.disqus.com/count.js" async></script>
+  
+
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2017/03/16/自定义Preference/';
+        this.page.identifier = '2017/03/16/自定义Preference/';
+        this.page.title = '自定义Preference';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://mystery0.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("ICzYQuseO4e91t0Hm2wKJuXW-gzGzoHsz", "yzENh050qHUKUD3udnhjjoip");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            
+            counter.save(null, {
+              success: function(counter) {
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

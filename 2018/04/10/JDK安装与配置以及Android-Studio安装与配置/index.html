@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.3.0',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="#不想多说什么，直接开始主题。 JDK安装与配置JDK下载 打开你的浏览器，不管你是Chrome还是Firefox还是Edge还是Internet Explore，只要是个浏览器就打开。 打开这个地址： http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html（JDK下载地址） 找到下面的">
+<meta name="keywords" content="Android Studio安装,JDK">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JDK安装与配置以及Android Studio安装与配置">
+<meta property="og:url" content="http://yoursite.com/2018/04/10/JDK安装与配置以及Android-Studio安装与配置/index.html">
+<meta property="og:site_name" content="Mystery0の小站">
+<meta property="og:description" content="#不想多说什么，直接开始主题。 JDK安装与配置JDK下载 打开你的浏览器，不管你是Chrome还是Firefox还是Edge还是Internet Explore，只要是个浏览器就打开。 打开这个地址： http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html（JDK下载地址） 找到下面的">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-10_23-18-39.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-10_23-21-18.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-10_23-21-45.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-10_23-22-59.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-10_23-25-32.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-10_23-25-58.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-10_23-27-30.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-10_23-16-23.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-10_23-16-44.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-10_23-29-22.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-10_23-31-00.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-10_23-32-12.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-10_23-33-19.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-10_23-33-47.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-10_23-36-42.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-10_23-37-07.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-10_23-37-41.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-10_23-38-02.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-11_00-25-25.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-11_00-30-38.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-11_00-31-54.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-11_00-33-05.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-11_00-33-25.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-11_00-33-44.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-10_23-08-34.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-10_23-08-34.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-10_23-08-44.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-10_23-08-58.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-10_23-09-19.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-10_23-09-54.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-10_23-10-17.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-10_23-12-23.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-10_23-12-45.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-10_23-14-06.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-11_00-51-49.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-11_00-57-00.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-11_00-59-03.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-11_00-59-51.png">
+<meta property="og:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-11_01-02-15.png">
+<meta property="og:updated_time" content="2018-07-15T12:35:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JDK安装与配置以及Android Studio安装与配置">
+<meta name="twitter:description" content="#不想多说什么，直接开始主题。 JDK安装与配置JDK下载 打开你的浏览器，不管你是Chrome还是Firefox还是Edge还是Internet Explore，只要是个浏览器就打开。 打开这个地址： http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html（JDK下载地址） 找到下面的">
+<meta name="twitter:image" content="http://yoursite.com/images/hexo/Snipaste_2018-04-10_23-18-39.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/10/JDK安装与配置以及Android-Studio安装与配置/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>JDK安装与配置以及Android Studio安装与配置 | Mystery0の小站</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Mystery0の小站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">要么做第一个，要么做最好的一个！</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/10/JDK安装与配置以及Android-Studio安装与配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mystery0">
+      <meta itemprop="description" content="要么做第一个，要么做最好的一个！">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mystery0の小站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JDK安装与配置以及Android Studio安装与配置
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-04-10 23:40:35" itemprop="dateCreated datePublished" datetime="2018-04-10T23:40:35+08:00">2018-04-10</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-07-15 20:35:36" itemprop="dateModified" datetime="2018-07-15T20:35:36+08:00">2018-07-15</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/10/JDK安装与配置以及Android-Studio安装与配置/#comments" itemprop="discussionUrl">
+                
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/04/10/JDK安装与配置以及Android-Studio安装与配置/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/04/10/JDK安装与配置以及Android-Studio安装与配置/" class="leancloud_visitors" data-flag-title="JDK安装与配置以及Android Studio安装与配置">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id=""><a href="#" class="headerlink" title="#"></a>#</h1><p>不想多说什么，直接开始主题。</p>
+<h1 id="JDK安装与配置"><a href="#JDK安装与配置" class="headerlink" title="JDK安装与配置"></a>JDK安装与配置</h1><h2 id="JDK下载"><a href="#JDK下载" class="headerlink" title="JDK下载"></a>JDK下载</h2><ol>
+<li>打开你的浏览器，不管你是Chrome还是Firefox还是Edge还是Internet Explore，只要是个浏览器就打开。</li>
+<li>打开这个地址： <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" title="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a>（JDK下载地址）</li>
+<li>找到下面的地方，然后根据图片操作。<br><img src="/images/hexo/Snipaste_2018-04-10_23-18-39.png" alt=""><br>在这里根据自己系统的位数进行下载，比如我的系统是64位的就下载64位的安装包。<br>如果不知道怎么查看自己系统的位数，请查看这个链接：<a href="https://jingyan.baidu.com/article/0bc808fc6b49c21bd485b90d.html" title="https://jingyan.baidu.com/article/0bc808fc6b49c21bd485b90d.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/0bc808fc6b49c21bd485b90d.html</a></li>
+<li>使用下载工具，略<h2 id="JDK安装"><a href="#JDK安装" class="headerlink" title="JDK安装"></a>JDK安装</h2>下载JDK安装包应该已经下载到本地了。<br><img src="/images/hexo/Snipaste_2018-04-10_23-21-18.png" alt=""><br>这个就是下载下来的JDK安装包，我给的链接是JDK1.8的，我下载的是64位的</li>
+<li>打开，双击还是右键打开随你。</li>
+<li>请跟随下面的流程进行操作：<br><img src="/images/hexo/Snipaste_2018-04-10_23-21-45.png" alt=""><br>一打开就是这个界面。<br><img src="/images/hexo/Snipaste_2018-04-10_23-22-59.png" alt=""><br>接下来是选择安装那些东西和安装的位置，具体操作我也在图片里标注了，至于安装位置，在不在C盘都行，只是路径里面<strong>尽量不要有空格</strong>，有空格也可以，只是稍稍麻烦一点而已。<br><img src="/images/hexo/Snipaste_2018-04-10_23-25-32.png" alt=""><br>单击继续之后开始安装JDK，注意的是JDK在安装的最后会安装JRE，如果你已经安装了可以不用安装。<br><img src="/images/hexo/Snipaste_2018-04-10_23-25-58.png" alt=""><br>选择安装路径<br><img src="/images/hexo/Snipaste_2018-04-10_23-27-30.png" alt=""><br>安装好JRE之后JDK也会提示安装完成。<h2 id="JDK环境变量配置"><a href="#JDK环境变量配置" class="headerlink" title="JDK环境变量配置"></a>JDK环境变量配置</h2><strong>似乎这一步对于Android Studio来说可有可无（我没配置环境变量依旧可用AS），考虑到以后各位可能要学Java，提前搭建环境也是可以的</strong></li>
+<li><p>打开环境变量配置<br>首先鼠标右键计算机（或者此电脑，或者你自己改的名字），选择属性。会进入到下面的界面，如果找不到计算机、此电脑、奇葩名字的，可以通过win键（或者点一下开始菜单），然后输入“控制面板”（英语请输入”Control Panel”），打开之后依次打开“系统和安全”(System and Security)-“系统”(System)进入下面的界面。<br><img src="/images/hexo/Snipaste_2018-04-10_23-16-23.png" alt=""><br>如图所示打开“高级系统设置”然后打开“环境变量”<br><img src="/images/hexo/Snipaste_2018-04-10_23-16-44.png" alt=""></p>
+</li>
+<li><p>配置JAVA_HOME<br>如图操作：<br><strong>关于JDK的安装路径，是我们在上一个步骤自己选择的，可以使用“文件资源管理器”定位到目录，然后拷贝路径：</strong><br><img src="/images/hexo/Snipaste_2018-04-10_23-29-22.png" alt=""><br><img src="/images/hexo/Snipaste_2018-04-10_23-31-00.png" alt=""></p>
+</li>
+<li>配置Path<br><code>Path</code>变量和<code>JAVA_HOME</code>不同，这个变量是系统已经有的，所以我们只需要更改它的值就行，不用新建，如图操作：<br><img src="/images/hexo/Snipaste_2018-04-10_23-32-12.png" alt=""><br>依次添加两个值：<br> %JAVA_HOME%\bin<br> %JAVA_HOME%\jre\bin</li>
+</ol>
+<p><img src="/images/hexo/Snipaste_2018-04-10_23-33-19.png" alt=""><br><img src="/images/hexo/Snipaste_2018-04-10_23-33-47.png" alt=""></p>
+<ol start="4">
+<li>配置CLASSPATH<br>如图：<br><img src="/images/hexo/Snipaste_2018-04-10_23-36-42.png" alt=""><br> .;%Java_Home%\bin;%Java_Home%\lib\dt.jar;%Java_Home%\lib\tools.jar</li>
+</ol>
+<p><strong>复制的时候不要忘了前面的那个点</strong><br><strong>复制的时候不要忘了前面的那个点</strong><br><strong>复制的时候不要忘了前面的那个点</strong></p>
+<ol start="5">
+<li>测试JDK的环境变量<br>打开CMD，PowerShell也行，然后输入<code>java</code>或者<code>javac</code>，如果不是提示未知命令则配置成功。<br><img src="/images/hexo/Snipaste_2018-04-10_23-37-07.png" alt=""><br><img src="/images/hexo/Snipaste_2018-04-10_23-37-41.png" alt=""><br><img src="/images/hexo/Snipaste_2018-04-10_23-38-02.png" alt=""><br>至此，JDK的下载安装配置完成。<h1 id="Android-Studio下载安装与配置"><a href="#Android-Studio下载安装与配置" class="headerlink" title="Android Studio下载安装与配置"></a>Android Studio下载安装与配置</h1><h2 id="下载Android-Studio"><a href="#下载Android-Studio" class="headerlink" title="下载Android Studio"></a>下载Android Studio</h2>首先，让我们感谢伟大的万里长城，默念社会主义好。<br>因为某些不可描述（我也不想描述）的原因，google.com是<code>404 Not Found</code>的，但是Google发布了中国站点<code>developers.google.cn</code>。<br>反正我们是能用了。<br>这里给出Android的开发网址，里面包含了最新的blog以及一些其他的东西，比如说Kotlin。<br><a href="https://developer.android.google.cn/develop/index.html" title="https://developer.android.google.cn/develop/index.html" target="_blank" rel="noopener">https://developer.android.google.cn/develop/index.html</a></li>
+<li>下载Android Studio<br>Android Studio下载地址：<a href="https://developer.android.google.cn/studio/index.html" title="https://developer.android.google.cn/studio/index.html" target="_blank" rel="noopener">https://developer.android.google.cn/studio/index.html</a><br>不用去担心什么被墙了，这个没有，也不推荐去各大应用市场下载，鬼知道它的是哪个版本的，也不知道是不是改过什么的。<br><img src="/images/hexo/Snipaste_2018-04-11_00-25-25.png" alt=""><br>在这里我下载的是第一个，64位，exe的版本。<br><img src="/images/hexo/Snipaste_2018-04-11_00-30-38.png" alt=""><br>下载下来就这个样子，忽略我的版本号。</li>
+<li>安装Android Studio<br>双击打开，依次执行：<br><img src="/images/hexo/Snipaste_2018-04-11_00-31-54.png" alt=""><br><img src="/images/hexo/Snipaste_2018-04-11_00-33-05.png" alt=""><br><img src="/images/hexo/Snipaste_2018-04-11_00-33-25.png" alt=""><br>关于是否安装到C盘的问题，随你，因为我C盘是固态硬盘，本着固态硬盘是拿来用的，不是拿来看的思想，所以我的软件都是装在C盘的。<br><img src="/images/hexo/Snipaste_2018-04-11_00-33-44.png" alt=""><br>之后的安装界面应该是没什么重要的了，一直默认就行，因为我已经安装了Android Studio，所以，就没有继续安装。</li>
+<li>配置Android Studio<br>安装完之后，你应该可以在桌面或者开始菜单中找到Android Studio的图标。<br>打开之后会出现下面的界面：<br><img src="/images/hexo/Snipaste_2018-04-10_23-08-34.png" alt=""><br>这是在询问你是否要导入旧版本的配置，因为我们是第一次安装，所以选择不导入（Do not import settings）<br><img src="/images/hexo/Snipaste_2018-04-10_23-08-34.png" alt=""><br>Android Studio启动界面<br><img src="/images/hexo/Snipaste_2018-04-10_23-08-44.png" alt=""><br>第一次安装的时候会出现这个弹框，这是因为我们还没有下载Android SDK。<br><img src="/images/hexo/Snipaste_2018-04-10_23-08-58.png" alt=""><br>等那个界面过了之后，我们会进入这个界面,依次执行<br><img src="/images/hexo/Snipaste_2018-04-10_23-09-19.png" alt=""><br><img src="/images/hexo/Snipaste_2018-04-10_23-09-54.png" alt=""><br><img src="/images/hexo/Snipaste_2018-04-10_23-10-17.png" alt=""><br><img src="/images/hexo/Snipaste_2018-04-10_23-12-23.png" alt=""><br><img src="/images/hexo/Snipaste_2018-04-10_23-12-45.png" alt=""><br><img src="/images/hexo/Snipaste_2018-04-10_23-14-06.png" alt=""><br>具体的操作我都标注在了图里面，依次来就行。<br>最后会进入SDK的下载界面，不用担心什么被墙了之类的，<code>dl.google.com</code>解析到的是Google在北京的服务器，没被墙。<br>等待SDK下载完毕之后就可以使用Android Studio了。<br>至此，Android Studio下载安装配置完成。<h1 id="使用Android-Studio来进行Hello-World"><a href="#使用Android-Studio来进行Hello-World" class="headerlink" title="使用Android Studio来进行Hello World"></a>使用Android Studio来进行Hello World</h1></li>
+<li>打开Android Studio<br><img src="/images/hexo/Snipaste_2018-04-11_00-51-49.png" alt=""><br>也许你的打开之后没有左边的一堆东西，那是你打开过的历史项目，而在我这里就是一些我自己写的项目，可以看到西瓜课表也在里面。<br>在这里，我们选择新建一个项目。<br><img src="/images/hexo/Snipaste_2018-04-11_00-57-00.png" alt=""><br><img src="/images/hexo/Snipaste_2018-04-11_00-59-03.png" alt=""><br><img src="/images/hexo/Snipaste_2018-04-11_00-59-51.png" alt=""><br><img src="/images/hexo/Snipaste_2018-04-11_01-02-15.png" alt=""><br>如果某个时刻卡在了<code>Building &#39;XXXXX&#39; Gradle project info</code>，请等待，一般是因为在下载Gradle，又因为Gradle在国内的访问速度被限制，所以我们等待就好，也许上一节课回来就ojbk了。<br>当然，如果你觉得自己的动手能力很强，可以尝试<a href="https://blog.csdn.net/hp910315/article/details/70159593" title="https://blog.csdn.net/hp910315/article/details/70159593" target="_blank" rel="noopener">这个文章</a>的方法手动下载Gradle。<br>其他的问题基本上可以尝试Google或者Bing或者Baidu（不推荐，有些东西，真正能解决问题的因为国情就XXX了）。<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><a href="https://blog.csdn.net/hebbely/article/details/78970918" title="Android studio安装与配置 - hebbely" target="_blank" rel="noopener">Android studio安装与配置 - hebbely</a><br><a href="https://www.jianshu.com/p/28111d29eee4" title="如何自学Android - lavor" target="_blank" rel="noopener">如何自学Android - lavor</a><br><a href="https://www.imooc.com/course/programdetail/pid/33" title="慕课网 Android工程师路径图" target="_blank" rel="noopener">慕课网 Android工程师路径图</a><br><a href="https://www.jianshu.com/p/4db8aecaa26f" title="Android代码规范 - xlsong" target="_blank" rel="noopener">Android代码规范 - xlsong</a><br><a href="https://juejin.im/post/5aa404b6f265da23945f191c" title="阅读《阿里巴巴Android开发手册1.0.1》笔记 - woodsho" target="_blank" rel="noopener">阅读《阿里巴巴Android开发手册1.0.1》笔记 - woodsho</a></li>
+</ol>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Mystery0 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Mystery0 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android-Studio安装/" rel="tag"># Android Studio安装</a>
+          
+            <a href="/tags/JDK/" rel="tag"># JDK</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/02/薛定谔的猫，我的猫/" rel="next" title="薛定谔的猫，我的猫">
+                <i class="fa fa-chevron-left"></i> 薛定谔的猫，我的猫
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/07/Android路线图/" rel="prev" title="Android路线图">
+                Android路线图 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Mystery0" />
+            
+              <p class="site-author-name" itemprop="name">Mystery0</p>
+              <p class="site-description motion-element" itemprop="description">要么做第一个，要么做最好的一个！</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/yourname" target="_blank" title="GitHub">GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:mystery0dyl520@gmail.com" target="_blank" title="E-Mail">E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://plus.google.com/109157499544556604338" target="_blank" title="Google+">Google+</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://t.me/Mystery0" target="_blank" title="Telegram">Telegram</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://weilylab.com" title="微力实验室" target="_blank">微力实验室</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.csdn.net/qq_40891541" title="纸镜之境" target="_blank">纸镜之境</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#"><span class="nav-number">1.</span> <span class="nav-text">#</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JDK安装与配置"><span class="nav-number">2.</span> <span class="nav-text">JDK安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JDK下载"><span class="nav-number">2.1.</span> <span class="nav-text">JDK下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JDK安装"><span class="nav-number">2.2.</span> <span class="nav-text">JDK安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JDK环境变量配置"><span class="nav-number">2.3.</span> <span class="nav-text">JDK环境变量配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android-Studio下载安装与配置"><span class="nav-number">3.</span> <span class="nav-text">Android Studio下载安装与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载Android-Studio"><span class="nav-number">3.1.</span> <span class="nav-text">下载Android Studio</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用Android-Studio来进行Hello-World"><span class="nav-number">4.</span> <span class="nav-text">使用Android Studio来进行Hello World</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考链接"><span class="nav-number">5.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mystery0</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Mist</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+  
+    <script id="dsq-count-scr" src="https://mystery0.disqus.com/count.js" async></script>
+  
+
+  
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2018/04/10/JDK安装与配置以及Android-Studio安装与配置/';
+        this.page.identifier = '2018/04/10/JDK安装与配置以及Android-Studio安装与配置/';
+        this.page.title = 'JDK安装与配置以及Android Studio安装与配置';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://mystery0.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("ICzYQuseO4e91t0Hm2wKJuXW-gzGzoHsz", "yzENh050qHUKUD3udnhjjoip");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            
+            counter.save(null, {
+              success: function(counter) {
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
