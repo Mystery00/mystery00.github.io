@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mystery0.vip/"/>
-  <updated>2018-12-26T05:53:46.626Z</updated>
+  <updated>2018-12-26T06:30:43.083Z</updated>
   <id>https://mystery0.vip/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://mystery0.vip/2018/12/26/%E8%BD%AC%E8%BD%BD-%E5%BC%80%E6%BA%90%E5%8D%B3%E8%B4%A3%E4%BB%BB/"/>
     <id>https://mystery0.vip/2018/12/26/转载-开源即责任/</id>
     <published>2018-12-26T05:10:06.000Z</published>
-    <updated>2018-12-26T05:53:46.626Z</updated>
+    <updated>2018-12-26T06:30:43.083Z</updated>
     
     <summary type="html">
     
@@ -36,6 +36,12 @@
     
     </summary>
     
+      <category term="转载" scheme="https://mystery0.vip/categories/%E8%BD%AC%E8%BD%BD/"/>
+    
+    
+      <category term="开源" scheme="https://mystery0.vip/tags/%E5%BC%80%E6%BA%90/"/>
+    
+      <category term="转载" scheme="https://mystery0.vip/tags/%E8%BD%AC%E8%BD%BD/"/>
     
   </entry>
   
@@ -181,34 +187,6 @@
       <category term="Android Studio安装" scheme="https://mystery0.vip/tags/Android-Studio%E5%AE%89%E8%A3%85/"/>
     
       <category term="JDK" scheme="https://mystery0.vip/tags/JDK/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>新的一年，新的打算</title>
-    <link href="https://mystery0.vip/2018/03/21/%E6%96%B0%E7%9A%84%E4%B8%80%E5%B9%B4%EF%BC%8C%E6%96%B0%E7%9A%84%E6%89%93%E7%AE%97/"/>
-    <id>https://mystery0.vip/2018/03/21/新的一年，新的打算/</id>
-    <published>2018-03-21T14:04:23.000Z</published>
-    <updated>2018-07-15T12:35:36.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;总算是有点时间来写博客了。&quot;&gt;&lt;a href=&quot;#总算是有点时间来写博客了。&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="生活" scheme="https://mystery0.vip/categories/%E7%94%9F%E6%B4%BB/"/>
-    
-    
-      <category term="生活" scheme="https://mystery0.vip/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-      <category term="规划" scheme="https://mystery0.vip/tags/%E8%A7%84%E5%88%92/"/>
     
   </entry>
   
@@ -578,6 +556,34 @@
       <category term="Hexo" scheme="https://mystery0.vip/tags/Hexo/"/>
     
       <category term="博客" scheme="https://mystery0.vip/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>小谈Android系统文件目录</title>
+    <link href="https://mystery0.vip/2017/01/11/%E5%B0%8F%E8%B0%88Android%E7%B3%BB%E7%BB%9F%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95/"/>
+    <id>https://mystery0.vip/2017/01/11/小谈Android系统文件目录/</id>
+    <published>2017-01-11T10:45:09.000Z</published>
+    <updated>2018-07-15T12:35:36.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;从高三第一次用安卓手机开始，笔者便走上了刷机的不归路。其实今天谈的东西呢，主要是一些基础知识，也就是笔者刷机阶段所学到的一些东西。&lt;br&gt;Android基于Linux系统开发，大多数系统目录和Linux也差不多，但是还是有些不一样的。从一个其他系统包移植到官方包，我们最开始
+        
+      
+    
+    </summary>
+    
+      <category term="Android" scheme="https://mystery0.vip/categories/Android/"/>
+    
+    
+      <category term="Android" scheme="https://mystery0.vip/tags/Android/"/>
+    
+      <category term="Rom" scheme="https://mystery0.vip/tags/Rom/"/>
     
   </entry>
   
