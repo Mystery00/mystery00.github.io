@@ -112,15 +112,15 @@
 <meta name="keywords" content="算法,JAVA">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LCS（最长公共子序列）求解">
-<meta property="og:url" content="http://yoursite.com/2018/05/21/LCS（最长公共子序列）求解/index.html">
+<meta property="og:url" content="https://mystery0.vip/2018/05/21/LCS（最长公共子序列）求解/index.html">
 <meta property="og:site_name" content="Mystery0の小站">
 <meta property="og:description" content="废话因为四月份的蓝桥杯省赛拿了省一等奖，也报了国赛，加上6月2号的ACM，所以在这段时间里面要搞搞算法。这段时间的面试（只面了京东（校招）和头条（内推）），暴露出来的是Java基础了解的不够深入，同时算法一直以来都是我的薄弱环节，希望这两个比赛能够让我得到一点提升。这篇文章是为了我能够记住解题的思想同时也算是整理一下思路。 什么是LCSLCS(Longest Common Subsequence">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://latex.codecogs.com/svg.latex?LCS(X_{m},Y_{n})=\left\{\begin{matrix}&space;LCS(X_{m-1},Y_{n-1})+x_{m}&space;&&space;&&space;x_{m}=y_{n}\&space;max\begin{Bmatrix}&space;LCS(X_{m-1},Y_{n}),LCS(X_{m},Y_{n-1})&space;\end{Bmatrix}&space;&&space;&&space;x_{m}\neq&space;y_{n}&space;\end{matrix}\right.">
 <meta property="og:image" content="http://latex.codecogs.com/svg.latex?c(i,j)=\left\{\begin{matrix}&space;0&space;&&space;&&space;i=0||j=0\&space;c(i-1,j-1)+1&space;&&space;&&space;i>0,j>0,x_{i}=y_{j}\&space;max\begin{Bmatrix}&space;c(i-1,j),c(i,j-1)&space;\end{Bmatrix}&space;&&space;&&space;i>0,j>0,x_{i}\neq&space;y_{j}&space;\end{matrix}\right.">
-<meta property="og:image" content="http://yoursite.com/images/hexo/20180521203700.png">
-<meta property="og:image" content="http://yoursite.com/images/hexo/20180521204200.png">
-<meta property="og:image" content="http://yoursite.com/images/hexo/20180521204201.png">
+<meta property="og:image" content="https://mystery0.vip/images/hexo/20180521203700.png">
+<meta property="og:image" content="https://mystery0.vip/images/hexo/20180521204200.png">
+<meta property="og:image" content="https://mystery0.vip/images/hexo/20180521204201.png">
 <meta property="og:updated_time" content="2018-07-15T12:35:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LCS（最长公共子序列）求解">
@@ -129,10 +129,12 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="Mystery0の小站" type="application/atom+xml" />
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/21/LCS（最长公共子序列）求解/"/>
+
+  <link rel="canonical" href="https://mystery0.vip/2018/05/21/LCS（最长公共子序列）求解/"/>
 
 
 
@@ -238,17 +240,9 @@
         
         
           
-          <li class="menu-item menu-item-about">
-    <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
-  </li>
-        
-        
-        
-          
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签<span class="badge">32</span></a>
   </li>
         
         
@@ -256,7 +250,7 @@
           
           <li class="menu-item menu-item-categories">
     <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类<span class="badge">9</span></a>
   </li>
         
         
@@ -264,7 +258,15 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档<span class="badge">22</span></a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+    <a href="/sitemap.xml" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />站点地图</a>
   </li>
 
       
@@ -346,7 +348,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/21/LCS（最长公共子序列）求解/">
+    <link itemprop="mainEntityOfPage" href="https://mystery0.vip/2018/05/21/LCS（最长公共子序列）求解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mystery0">
@@ -869,27 +871,34 @@ LCS(X,Y)为字符串X和Y的最长公共子序列，即Z=&lt;z1,z2,···,zk&gt;
           
 
           
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
 
           
             <div class="links-of-author motion-element">
               
                 <span class="links-of-author-item">
-                  <a href="https://github.com/yourname" target="_blank" title="GitHub">GitHub</a>
+                  <a href="https://github.com/yourname" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
                   
                 </span>
               
                 <span class="links-of-author-item">
-                  <a href="mailto:mystery0dyl520@gmail.com" target="_blank" title="E-Mail">E-Mail</a>
+                  <a href="mailto:mystery0dyl520@gmail.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                   
                 </span>
               
                 <span class="links-of-author-item">
-                  <a href="https://plus.google.com/109157499544556604338" target="_blank" title="Google+">Google+</a>
+                  <a href="https://t.me/Mystery0" target="_blank" title="Telegram"><i class="fa fa-fw fa-telegram"></i>Telegram</a>
                   
                 </span>
               
                 <span class="links-of-author-item">
-                  <a href="https://t.me/Mystery0" target="_blank" title="Telegram">Telegram</a>
+                  <a href="https://twitter.com/Mystery020" target="_blank" title="Twitter"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
                   
                 </span>
               
@@ -1092,7 +1101,7 @@ LCS(X,Y)为字符串X和Y的最长公共子序列，即Z=&lt;z1,z2,···,zk&gt;
   
     <script type="text/javascript">
       var disqus_config = function () {
-        this.page.url = 'http://yoursite.com/2018/05/21/LCS（最长公共子序列）求解/';
+        this.page.url = 'https://mystery0.vip/2018/05/21/LCS（最长公共子序列）求解/';
         this.page.identifier = '2018/05/21/LCS（最长公共子序列）求解/';
         this.page.title = 'LCS（最长公共子序列）求解';
         };
